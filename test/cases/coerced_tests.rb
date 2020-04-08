@@ -1181,3 +1181,9 @@ class EagerLoadingTooManyIdsTest < ActiveRecord::TestCase
   # Temporarily coerce this test due to https://github.com/rails/rails/issues/34945
   coerce_tests! :test_eager_loading_too_may_ids
 end
+
+
+class FixturesTest < ActiveRecord::TestCase
+  # Temporarily coerce this test on Windows because we do not override Rails behaviour
+  coerce_tests! :test_binary_in_fixtures if RbConfig::CONFIG['host_os'] =~ /mswin|mingw/
+end
